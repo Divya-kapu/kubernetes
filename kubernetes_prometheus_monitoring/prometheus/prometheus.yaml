@@ -1,0 +1,67 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"monitoring.coreos.com/v1","kind":"Prometheus","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"prometheus","app.kubernetes.io/instance":"k8s","app.kubernetes.io/name":"prometheus","app.kubernetes.io/part-of":"kube-prometheus","app.kubernetes.io/version":"2.32.1"},"name":"application","namespace":"default"},"spec":{"alerting":{"alertmanagers":[{"name":"alertmanager-application","namespace":"default","port":"http-web"}]},"image":"quay.io/prometheus/prometheus:v2.32.1","nodeSelector":{"kubernetes.io/os":"linux"},"replicas":1,"resources":{"requests":{"memory":"400Mi"}},"ruleSelector":{"matchLabels":{"prometheus":"application","role":"metric-alert-rules"}},"securityContext":{"fsGroup":2000,"runAsNonRoot":true,"runAsUser":1000},"serviceAccountName":"prometheus-kube-prometheus-prometheus","serviceMonitorNamespaceSelector":{},"serviceMonitorSelector":{},"version":"2.32.1"}}
+  creationTimestamp: "2022-09-07T23:33:59Z"
+  generation: 2
+  labels:
+    app.kubernetes.io/component: prometheus
+    app.kubernetes.io/instance: k8s
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/part-of: kube-prometheus
+    app.kubernetes.io/version: 2.32.1
+  name: application
+  namespace: default
+  resourceVersion: "221180"
+  uid: eb4fb402-23fa-4263-9f0c-f69fcf949e58
+spec:
+  alerting:
+    alertmanagers:
+    - name: prometheus-kube-prometheus-alertmanager
+      namespace: default
+      port: http-web
+  evaluationInterval: 30s
+  image: quay.io/prometheus/prometheus:v2.32.1
+  nodeSelector:
+    kubernetes.io/os: linux
+  replicas: 1
+  resources:
+    requests:
+      memory: 400Mi
+  ruleSelector:
+    matchLabels:
+      prometheus: application
+      role: metric-alert-rules
+  scrapeInterval: 30s
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+  serviceAccountName: prometheus-kube-prometheus-prometheus
+  serviceMonitorNamespaceSelector: {}
+  serviceMonitorSelector: {}
+  version: 2.32.1
+status:
+  availableReplicas: 0
+  conditions:
+  - lastTransitionTime: "2022-09-08T21:41:18Z"
+    message: 'shard 0: pod prometheus-application-0: containers with unready status:
+      [prometheus]'
+    reason: NoPodReady
+    status: "False"
+    type: Available
+  - lastTransitionTime: "2022-09-08T19:54:14Z"
+    status: "True"
+    type: Reconciled
+  paused: false
+  replicas: 1
+  shardStatuses:
+  - availableReplicas: 0
+    replicas: 1
+    shardID: "0"
+    unavailableReplicas: 1
+    updatedReplicas: 1
+  unavailableReplicas: 1
+  updatedReplicas: 1

@@ -1,0 +1,36 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"monitoring.coreos.com/v1","kind":"PrometheusRule","metadata":{"annotations":{},"labels":{"prometheus":"application","role":"metric-alert-rules"},"name":"prometheus-alert-rule","namespace":"default"},"spec":{"groups":[{"name":"metrics-rule","rules":[{"alert":"metric-count-alert","annotations":{"description":"Total request count \u003e 5"},"expr":"http_requests_total{job=\"acceleration-a-svc\"} \u003e 3","for":"1m","labels":{"severity":"warning"}}]}]}}
+    prometheus-operator-validated: "true"
+  creationTimestamp: "2022-09-07T19:19:36Z"
+  generation: 3
+  labels:
+    prometheus: application
+    role: metric-alert-rules
+  name: prometheus-alert-rule
+  namespace: default
+  resourceVersion: "168359"
+  uid: a78e94da-2ad7-4e37-9836-2a086b5f53a3
+spec:
+  groups:
+  - name: AllInstances
+    rules:
+    - alert: InstanceDown
+      annotations:
+        description: Inastances has been down for more than 1 minute.
+      expr: up == 0
+      for: 1m
+      labels:
+        severity: critical
+  - name: metrics-rule
+    rules:
+    - alert: metric-count-alert
+      annotations:
+        description: Total request count > 5
+      expr: python_request_duration_seconds_count > 3
+      for: 1m
+      labels:
+        severity: warning

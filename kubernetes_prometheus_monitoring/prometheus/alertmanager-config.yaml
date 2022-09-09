@@ -1,0 +1,17 @@
+alertmanager:
+  config:
+    global:
+      resolve_timeout: 5m
+    route:
+      routes:
+      - receiver: 'slack-notifications'
+        matchers:
+        - severity="critical"   
+        - severity="warning"
+    receivers:
+      - name: 'slack-notifications'
+        slack_configs:
+        - api_url : 'https://hooks.slack.com/services/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'
+          channel: '#metric_alerts'
+
+
