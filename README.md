@@ -1,13 +1,13 @@
 # kubernetes
 Projects on K8s and affiliates
 
-## **Python applications overview. **
+## Python applications overview. 
 
 Application contains three micro services  which together calculate acceleration by reading necessary parameters from from input URL 
 
 Output return from these micro services is in JSON format.
 
-## **Docker installation: **
+## Docker installation: 
 
 Install docker desktop by using below url.
 https://docs.docker.com/desktop/install/mac-install/
@@ -28,12 +28,12 @@ Step4:
 Push the tagged image to private repository.
 
 
-## **K8s cluster Installation: **
+## K8s cluster Installation: 
 
 Installed k8s cluster using minikube with docker desktop.
 
 brew install minikube
-Minikube start —driver=docker
+minikube start —driver=docker
 eval $(minikube docker-env) 
 
 Steps to spin up the kubernetes objects using helm chart, from the images created earlier
@@ -50,7 +50,7 @@ Steps to integrate custom metrics from app that running as a container in cluste
 
 We have to integrate the servicemonitor created in previous steps using helm to prometheus.
 
-## **Steps to install prometheus and Alertmanager using helm: **
+## Steps to install prometheus and Alertmanager using helm: 
 
 Step1:
 Reference url for installing prometheus stack with helm  below:
@@ -59,7 +59,7 @@ https://www.containiq.com/post/prometheus-alertmanager
 
 We have to integrate the prometheus rules and alert manager with Prometheus.
 
-## **Steps to integrate the alert manager with slack to get the alert notifications. **
+## Steps to integrate the alert manager with slack to get the alert notifications. 
 
 Step1:
 Create the slack account —> Browse Slack —> Apps —> Incoming WebHooks —> Add channel to get notified —> copy the webhook URL.
