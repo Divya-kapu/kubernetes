@@ -32,9 +32,9 @@ Push the tagged image to private repository.
 
 Installed k8s cluster using minikube with docker desktop.
 
-####*brew install minikube*
-####*minikube start —driver=docker*
-####*eval $(minikube docker-env)* 
+#### *brew install minikube*
+#### *minikube start —driver=docker*
+#### *eval $(minikube docker-env)* 
 
 Steps to spin up the kubernetes objects using helm chart, from the images created earlier
 
