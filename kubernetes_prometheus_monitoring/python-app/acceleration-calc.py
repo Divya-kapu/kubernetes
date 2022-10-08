@@ -4,7 +4,7 @@ from flask import Response, Flask, request
 import json
 from urllib.parse import urlparse
 import prometheus_client
-from prometheus_client import  Counter, Histogram  # other metrics are Summary, Gauge
+from prometheus_client import  Counter  # other metrics are Summary, Gauge
 import time
 
 app = Flask(__name__)
