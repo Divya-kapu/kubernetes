@@ -7,8 +7,4 @@ ports:
 containers:
  name: acceleration-dv
  image: localhost:5000/acceleration-calc 
-Prometheus:
-  name: application
-  image: quay.io/prometheus/prometheus:v2.32.1
-serviceAccount:
- name: prometheus-kube-prometheus-prometheus
+
